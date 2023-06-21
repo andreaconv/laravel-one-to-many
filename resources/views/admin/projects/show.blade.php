@@ -6,7 +6,7 @@
 
 
   <div class="d-inline">
-    <h2 class=" my-2 d-inline">
+    <h2 class="text-secondary my-2 d-inline">
       Titolo Progetto
     </h2>
 
@@ -16,7 +16,12 @@
 
   <h3>{{ $project->name }}</h3>
 
-  <h2 class=" my-2">
+  <h2 class="text-secondary my-2">
+    Tipologia
+  </h2>
+  <h3><span class="badge text-bg-{{ $project->type?->color }}">{{ $project->type?->name }}</span></h3>
+
+  <h2 class="text-secondary my-2">
     Data creazione
   </h2>
   <h3>{{ $data_formatted }}</h3>
@@ -28,7 +33,7 @@
   {{-- FIXME: visualizza il nome dell'immagine --}}
   <p>{{  $project->image_original_name  }}</p>
 
-  <h2 class=" my-2">
+  <h2 class="text-secondary my-2">
     Descrizione
   </h2>
   <p>{!! $project->description !!}</p>

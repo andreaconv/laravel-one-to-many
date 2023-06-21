@@ -22,7 +22,7 @@
 
     <div class="row">
 
-      <div class="mb-3 col-5">
+      <div class="mb-3 col-9">
         <label for="name" class="form-label">Nome Progetto</label>
         <input
           type="text"
@@ -37,7 +37,39 @@
           @enderror
       </div>
 
-      <div class="mb-3 col-5">
+      <div class="mb-3 col-3">
+        <label for="date_creation" class="form-label">Data di Creazione</label>
+        <input
+          type="date"
+          class="form-control"
+          name="date_creation"
+          id="date_creation"
+          value="{{ old('date_creation', $project?->date_creation) }}"
+          placeholder="Data di creazione">
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="mb-3 col-3">
+        <label for="category" class="form-label">Tipologia</label>
+        <select class="form-select" name="type_id">
+          <option value="">Selezionare una tipologia</option>
+
+          @foreach ($types as $type)
+
+            <option
+              value="{{ $type->id }}">
+              @if ($type->id == old('type_id', $project?->type->id)) selected @endif
+              {{ $type->name }}
+            </option>
+
+          @endforeach
+        </select>
+      </div>
+
+      <div class="mb-3 col-9">
         <label for="category" class="form-label">Categoria</label>
         <input
           type="text"
@@ -50,17 +82,6 @@
           @error('category')
             <p class="text-danger">{{ $message }}</p>
           @enderror
-      </div>
-
-      <div class="mb-3 col-2">
-        <label for="date_creation" class="form-label">Data di Creazione</label>
-        <input
-          type="date"
-          class="form-control"
-          name="date_creation"
-          id="date_creation"
-          value="{{ old('date_creation', $project?->date_creation) }}"
-          placeholder="Data di creazione">
       </div>
 
     </div>

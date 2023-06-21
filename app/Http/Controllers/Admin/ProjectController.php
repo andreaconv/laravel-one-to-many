@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Http\Requests\ProjectRequest;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Type;
 
 class ProjectController extends Controller
 {
@@ -28,12 +29,13 @@ class ProjectController extends Controller
    */
   public function create()
   {
+    $types = Type::all();
     $title = 'Creazione di un nuovo Progetto';
     $method = 'POST';
     $route = route('admin.project.store');
     $project = null;
     // $image = '/img/placeholder.jpg';
-    return view('admin.projects.create-edit', compact('title', 'method', 'route', 'project'));
+    return view('admin.projects.create-edit', compact('title', 'method', 'route', 'project', 'types'));
   }
 
   /**
@@ -85,11 +87,12 @@ class ProjectController extends Controller
    */
   public function edit(Project $project)
   {
+    $types = Type::all();
     $title = 'Modifica del progetto: ' . $project->name;
     $method = 'PUT';
     $route = route('admin.project.update', $project);
     // $image = 'asset(storage/ . $project->image_path)';
-    return view('admin.projects.create-edit', compact('title', 'method', 'route', 'project'));
+    return view('admin.projects.create-edit', compact('title', 'method', 'route', 'project', 'types'));
   }
 
   /**
