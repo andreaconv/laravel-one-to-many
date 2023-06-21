@@ -15,7 +15,9 @@ class DatabaseSeeder extends Seeder
   public function run()
   {
     $this->call([
-      ProjectsTableSeeder::class
+      // l'ordine dei seeder è importante perchè prima  mi popola la tabella che andrà a popolare la colonna in relazione
+      TypeTableSeeder::class,
+      ProjectsTableSeeder::class // in produzione commentare questo seeder
   ]);
   }
 }
