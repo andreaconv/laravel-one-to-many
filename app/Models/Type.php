@@ -13,6 +13,6 @@ class Type extends Model
   //  ogni type ha tanti progetti quindi la funzione è al plurale
   //  "ho tanti progetti"
   public function projects(){
-    return $this->hasMany(Projects::class);
+    return $this->hasMany(Project::class);
   }
 }
