@@ -19,7 +19,7 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Nome</th>
-        {{-- <th scope="col">Descrizione</th> --}}
+        <th scope="col">Tipo</th>
         <th scope="col">Categoria</th>
         <th scope="col">Data di creazione</th>
         <th id="actions" scope="col">Azioni</th>
@@ -30,7 +30,11 @@
         <tr>
           <th scope="row">{{ $project->id }}</th>
           <td>{{ $project->name }}</td>
-          {{-- <td>{!! $project->description !!}</td> --}}
+
+          <td>{{-- il punto interrogativo è il Null-safe operator "?"  --}}
+            <span class="badge text-bg-primary">{{ $project->type?->name }}</span>
+          </td>
+
           <td>{{ $project->category }}</td>
           @php $date = date_create($project->date_creation) @endphp
           <td>{{ date_format($date, 'd/m/Y') }}</td>
