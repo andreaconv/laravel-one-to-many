@@ -16,13 +16,23 @@ class TypeTableSeeder extends Seeder
    */
   public function run()
   {
-    $types = ['HTML', 'CSS', 'JavaScript', 'VUE', 'VITE', 'PHP', 'LARAVEL' ];
+    $types = [
+      'HTML'       => 'danger',
+      'CSS'        => 'primary',
+      'JavaScript' => 'warning',
+      'VUE'        => 'success',
+      'VITE'       => 'info',
+      'PHP'        => 'violet',
+      'LARAVEL'    => 'secondary'
+    ];
 
-    foreach($types as $type){
+    foreach($types as $type => $color){
       $new_type = new Type();
       $new_type->name = $type;
       $new_type->slug = Str::slug($type, '-');
+      $new_type->color = $color;
       $new_type->save();
     }
+
   }
 }

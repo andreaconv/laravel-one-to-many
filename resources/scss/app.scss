@@ -40,6 +40,12 @@ header{
     #actions{
       min-width: 200px;
     }
+
+    table{
+      span.badge.text-bg-violet{
+        background-color: #6e2cf2;
+      }
+    }
   }
 
   .ck-editor__editable_inline{

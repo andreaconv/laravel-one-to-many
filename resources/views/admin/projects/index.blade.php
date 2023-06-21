@@ -32,7 +32,7 @@
           <td>{{ $project->name }}</td>
 
           <td>{{-- il punto interrogativo è il Null-safe operator "?"  --}}
-            <span class="badge text-bg-primary">{{ $project->type?->name }}</span>
+            <span class="badge text-bg-{{ $project->type?->color }}">{{ $project->type?->name }}</span>
           </td>
 
           <td>{{ $project->category }}</td>
