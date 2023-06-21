@@ -20,6 +20,13 @@ class Project extends Model {
     'date_creation'
   ];
 
+  // relazione con la tabella Types
+  // nome della tabella in camelCase al singolare perchè ogni progetto ha un solo type
+  // "appartengo a un type"
+  public function type(){
+    return $this->belongsTo(Type::class);
+  }
+
   public static function generateSlug($str){
 
     $slug = Str::slug($str, '-');
