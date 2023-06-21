@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Guest\PageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ use App\Http\Controllers\Admin\ProjectController;
 Route::get('/', [PageController::class, 'index'])->name('home');
 
 
-// FIXME: nel file RouteServiceProvider.php (PATH->app\Providers\RouteServiceProvider.php) cambiare la riga 20 `public const HOME = '/admin';`
+// FIXME: per farlo funzionare modificare nel file RouteServiceProvider.php (PATH->app\Providers\RouteServiceProvider.php) cambiare la riga 20 `public const HOME = '/admin';`
 
 Route::middleware(['auth', 'verified'])
   ->name('admin.')
@@ -28,6 +29,8 @@ Route::middleware(['auth', 'verified'])
   ->group( function(){
     Route::get('/', [DashboardController::class, 'index'])->name('home');
     Route::resource('project', ProjectController::class);
+    // FIXME:  la rotta del projectController punta alla tabella project al singolare??
+    Route::resource('type', TypeController::class);
   });
 
 
