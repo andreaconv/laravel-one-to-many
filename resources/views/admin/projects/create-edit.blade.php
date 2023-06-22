@@ -60,8 +60,8 @@
           @foreach ($types as $type)
 
             <option
-              value="{{ $type->id }}">
-              @if ($type->id == old('type_id', $project?->type->id)) selected @endif
+              value="{{ $type->id }}"
+              @if ($type->id == old('type_id', $project?->type->id)) selected @endif >
               {{ $type->name }}
             </option>
 
