@@ -14,11 +14,10 @@
     </div>
   @endif
 
-  {{-- TODO: creare il toggle per l'ordine dell'ID  --}}
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">ID</th>
+        <th scope="col"><a href="{{ route('admin.orderby', ['direction' => $direction]) }}" class="text-black">ID</a></th>
         <th scope="col">Nome</th>
         <th scope="col">Tipo</th>
         <th scope="col">Categoria</th>

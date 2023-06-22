@@ -29,6 +29,7 @@ Route::middleware(['auth', 'verified'])
   ->group( function(){
     Route::get('/', [DashboardController::class, 'index'])->name('home');
     Route::resource('project', ProjectController::class);
+    Route::get('orderby/{direction}', [ProjectController::class, 'orderby'])->name('orderby');
     // FIXME:  la rotta del projectController punta alla tabella project al singolare??
     Route::resource('type', TypeController::class);
   });
